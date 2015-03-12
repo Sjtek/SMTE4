@@ -1,0 +1,130 @@
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#000000"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <ImageView
+            android:id="@+id/alexander"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="10dp"
+            android:contentDescription="@string/description"
+            android:gravity="center_horizontal"
+            android:maxHeight="150dp"
+            android:maxWidth="150dp"
+            android:paddingTop="10dp"
+            android:src="@drawable/alexander"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="144dp"
+        android:paddingTop="15dp"
+        android:weightSum="1">
+
+        <TableLayout
+            android:layout_width="match_parent"
+            android:layout_height="118dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+            android:background="#16a085"
+            android:paddingTop="10dp"
+            >
+            <TableRow
+                android:gravity="center">
+                <TextView
+                    android:id="@+id/name"
+                    android:paddingRight="70dp"
+                    android:text="@string/name"
+                    android:textSize="20dp"/>
+                <TextView
+                    android:id="@+id/nameVal"
+                    android:text="@string/nameVal"
+                    android:textSize="20dp"/>
+            </TableRow>
+
+            <TableRow
+                android:gravity="center">
+                <TextView
+                    android:id="@+id/gender"
+                    android:paddingRight="70dp"
+                    android:text="@string/gender"
+                    android:textSize="20dp"/>
+                <TextView
+                    android:id="@+id/genderVal"
+                    android:text="@string/genderVal"
+                    android:textSize="20dp"/>
+            </TableRow>
+
+            <TableRow
+                android:gravity="center">
+                <TextView
+                    android:id="@+id/age"
+                    android:paddingRight="70dp"
+                    android:text="@string/age"
+                    android:textSize="20dp"/>
+                <TextView
+                    android:id="@+id/ageVal"
+                    android:text="@string/ageVal"
+                    android:textSize="20dp"/>
+            </TableRow>
+            <TableRow
+                android:gravity="center">
+                <TextView
+                    android:id="@+id/bounty"
+                    android:paddingRight="70dp"
+                    android:text="@string/bounty" android:textSize="20sp"/>
+                <TextView
+                    android:id="@+id/bountyVal"
+                    android:text="@string/bountyVal"
+                    android:textSize="20sp"/>
+
+
+            </TableRow>
+        </TableLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="93dp"
+        android:background="#000000">
+
+        <ScrollView
+            android:id="@+id/ScrollView01"
+            android:layout_width="fill_parent"
+            android:layout_height="90dp">
+
+            <TextView
+                android:id="@+id/description"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:text="@string/description"
+                android:textColor="#FFFFFF"
+                android:textSize="20sp"
+            />
+        </ScrollView>
+
+    </LinearLayout>
+        <Button
+            android:id="@+id/buttonReport"
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="100dp"
+            android:layout_height="50dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="10dp"
+            android:onClick="onClickForward"
+            android:text="@string/report"/>
+
+
+
+</LinearLayout>
