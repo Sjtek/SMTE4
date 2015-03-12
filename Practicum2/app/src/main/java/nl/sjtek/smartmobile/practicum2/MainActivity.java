@@ -2,12 +2,13 @@ package nl.sjtek.smartmobile.practicum2;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Bundle;
+import android.provider.MediaStore;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.TextView;
 
 
 public class MainActivity extends Activity {
@@ -32,13 +33,25 @@ public class MainActivity extends Activity {
         setContentView(R.layout.activity_main);
     };
 
-    public void onClickCamera(View v) {
-        setContentView(R.layout.activity_camera);
-    };
 
-    public void onClickCameraBack(View v) {
-        setContentView(R.layout.activity_report);
-    };
+    private static final int ACTIVITY_CAMERA_RESULT = 100;
+
+    public void openCamera(View view) {
+        Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+        startActivityForResult(intent, ACTIVITY_CAMERA_RESULT);
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == ACTIVITY_CAMERA_RESULT) {
+            if (resultCode == Activity.RESULT_OK) {
+                Bitmap bitmap = (Bitmap) data.getExtras().get("data");
+//                ImageView imageView = (ImageView) findViewById(R.id.imageView);
+//                imageView.setImageBitmap(bitmap);
+            }
+        }
+    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
