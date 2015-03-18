@@ -33,7 +33,11 @@
         </activity>
         <activity
             android:name=".ActivityCriminalDetails"
-            android:label="@string/title_activity_activity_criminal_details" >
+            android:label="@string/title_activity_activity_criminal_details"
+            android:parentActivityName=".ActivityCriminals" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="nl.sjtek.smartmobile.practicum2.ActivityCriminals" />>
         </activity>
     </application>
 

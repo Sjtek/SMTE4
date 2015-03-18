@@ -10,10 +10,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 import android.widget.TextView;
-
-import java.util.List;
 
 
 public class ActivityCriminals extends Activity {
@@ -43,35 +40,14 @@ public class ActivityCriminals extends Activity {
         layoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(layoutManager);
 
-        adapter = new CriminalsAdapter(crimials);
+        adapter = new CriminalsAdapter(crimials, this);
         recyclerView.setAdapter(adapter);
     }
 
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_activity_criminals, menu);
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
-        }
-
-        return super.onOptionsItemSelected(item);
-    }
-
-
     public class CriminalsAdapter extends RecyclerView.Adapter<CriminalsAdapter.ViewHolder> {
+
+        private Activity activity;
 
         public class ViewHolder extends RecyclerView.ViewHolder {
 
@@ -85,7 +61,7 @@ public class ActivityCriminals extends Activity {
                 itemView.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-                        Intent intent = new Intent(getApplicationContext(), ActivityCriminalDetails.class);
+                        Intent intent = new Intent(activity, ActivityCriminalDetails.class);
                         intent.putExtra(ActivityCriminalDetails.EXTRA_NAME, currentItem.getName());
                         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                         getApplicationContext().startActivity(intent);
@@ -96,12 +72,8 @@ public class ActivityCriminals extends Activity {
 
         private Criminal[] criminals;
 
-        public CriminalsAdapter(List<Criminal> criminals) {
-            this.criminals = new Criminal[criminals.size()];
-            criminals.toArray(this.criminals);
-        }
-
-        public CriminalsAdapter(Criminal[] criminals) {
+        public CriminalsAdapter(Criminal[] criminals, Activity activity) {
+            this.activity = activity;
             this.criminals = criminals;
         }
 
