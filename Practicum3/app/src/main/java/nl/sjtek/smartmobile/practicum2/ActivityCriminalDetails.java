@@ -1,31 +1,34 @@
 package nl.sjtek.smartmobile.practicum2;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
 import android.widget.TextView;
 
 
-public class MainActivity extends Activity {
+public class ActivityCriminalDetails extends Activity {
+
+    public final static String EXTRA_NAME = "extra-name";
+    private Criminal criminal;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_criminal_details);
+        String criminalName = getIntent().getExtras().getString(EXTRA_NAME, "error");
+        criminal = new Criminal(criminalName);
+        TextView textViewName = (TextView) findViewById(R.id.textViewName);
+        textViewName.setText(criminal.getName());
     }
 
-    public void onClickForward(View v) {
-        Intent intentReport = new Intent(this, ActivityReport.class);
-        startActivity(intentReport);
-    }
 
-      @Override
+    @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.menu_activity_main, menu);
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.menu_activity_criminal_details, menu);
         return true;
     }
 
@@ -37,9 +40,7 @@ public class MainActivity extends Activity {
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_list) {
-            Intent listIntent = new Intent(this, ActivityCriminals.class);
-            startActivity(listIntent);
+        if (id == R.id.action_settings) {
             return true;
         }
 
