@@ -2,8 +2,35 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical" >
+    android:orientation="horizontal" >
     
     <!-- TODO: put the user interface for one single item of the criminal list view here -->
+
+
+    <ImageView
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:id="@+id/mugShot"
+        android:contentDescription="Mugshot"
+        android:src="@drawable/mugshot1"
+        />
+    <TextView
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:id="@+id/mugName"
+        android:text="wil je laaien"
+        android:gravity="center_vertical|center_horizontal"
+        android:textStyle="bold"
+        android:textSize="15dp"
+        />
+    <TextView
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:id="@+id/mugBounty"
+        android:text="$1337"
+        android:gravity="center_vertical|center_horizontal"
+
+
+        />
 
 </LinearLayout>

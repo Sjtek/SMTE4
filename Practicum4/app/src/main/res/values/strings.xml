@@ -22,9 +22,8 @@
     <string name="Back">Back</string>
     <string name="picture">Take a picture</string>
     <string name="title_activity_activity_criminals">Criminal list</string>
-
-    <string name="hello_world">Hello world!</string>
     <string name="title_activity_activity_criminal_details">Criminal details</string>
+    <string name="title_activity_details">Criminal Details</string>
 
 
 </resources>

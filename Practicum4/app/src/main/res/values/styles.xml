@@ -7,7 +7,7 @@
     </style>
 
     <style name="AppTheme.TextView.Light" parent="@android:style/TextAppearance">
-        <item name="android:textColor">#fff</item>
+        <item name="android:textColor">@color/textColor</item>
         <item name="android:textSize">20dp</item>
         <item name="android:paddingLeft">10dp</item>
         <item name="android:paddingRight">10dp</item>
